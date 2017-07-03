@@ -1,0 +1,29 @@
+admin_security_check:
+    path: '/login_check'
+
+admin_security_logout:
+    path: '/logout'
+
+admin_security_login:
+    path: '/login'
+    defaults: { _controller: 'FrameworkBundle:Template:template', template: 'UserAdminBundle:Security:login.html.twig' }
+
+admin_forgot_password_request:
+    path:  '/forgot-password'
+    defaults: { _controller: 'UserAdminBundle:Resetting:forgotPassword' }
+
+admin_forgot_password_request_sent:
+    path:  '/forgot-password/sent'
+    defaults: { _controller: 'FrameworkBundle:Template:template', template: 'UserAdminBundle:Resetting:forgot_password_sent.html.twig' }
+
+admin_forgot_password_request_error:
+    path:  '/forgot-password/error'
+    defaults: { _controller: 'FrameworkBundle:Template:template', template: 'UserAdminBundle:Resetting:error.html.twig' }
+
+admin_reset_password_success:
+    path:  '/reset-password/success'
+    defaults: { _controller: 'FrameworkBundle:Template:template', template: 'UserAdminBundle:Resetting:reset_password_success.html.twig' }
+
+admin_reset_password:
+    path:  '/reset-password/{token}'
+    defaults: { _controller: 'UserAdminBundle:Resetting:resetPassword' }

@@ -1,0 +1,35 @@
+PhpSolution\UserAdminBundle\Entity\BasicUserAdmin:
+    type: mappedSuperclass
+    repositoryClass: 'Doctrine\ORM\EntityRepository'
+    lifecycleCallbacks:
+        prePersist: [ updateDateCreatedAt ]
+    id:
+        id:
+            type: integer
+            nullable: false
+            generator:
+                strategy: AUTO
+            options:
+                unsigned: true
+    fields:
+        email:
+            column: email
+            type: string
+            nullable: false
+            unique: true
+        password:
+            column: password
+            type: string
+            length: 255
+        salt:
+            column: salt
+            type: string
+            length: 255
+            nullable: true
+        dateCreatedAt:
+            column: date_created_at
+            type: datetime
+        enabled:
+            column: enabled
+            type: boolean
+            nullable: false

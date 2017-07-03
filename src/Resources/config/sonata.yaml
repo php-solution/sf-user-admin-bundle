@@ -1,0 +1,9 @@
+services:
+    user_admin.sonata_admin:
+        class: 'PhpSolution\UserAdminBundle\Bridge\SonataUserAdmin'
+        tags:
+          - { name: sonata.admin, manager_type: orm, label: 'System Admin' }
+        arguments:
+            - ~
+            - '%user_admin.admin_entity_class%'
+            - 'SonataAdminBundle:CRUD'

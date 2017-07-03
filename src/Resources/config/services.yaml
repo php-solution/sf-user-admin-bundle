@@ -1,0 +1,23 @@
+services:
+    user_admin.reset_process:
+        public: true
+        class: 'PhpSolution\UserAdminBundle\Service\AdminResetProcess'
+        arguments:
+            - '@doctrine'
+            - '%user_admin.admin_entity_class%'
+            - ~
+            - '@user_admin.reset_pass_notifier'
+            - '@security.encoder_factory'
+        calls:
+            - ['setJwtManager', ['@jwt.manager']]
+
+    user_admin.reset_pass_notifier:
+        public: false
+        class: 'PhpSolution\UserAdminBundle\Service\SendResetLinkNotifier'
+        arguments: ['@mailer', '@twig', ~, ~, ~]
+
+    user_admin.reset_token_type:
+        public: false
+        class: 'PhpSolution\JwtBundle\Jwt\Type\ConfigurableType'
+        arguments: [~, ~,[]]
+        tags: [{name: 'jwt.token_type'}]

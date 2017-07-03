@@ -1,0 +1,7 @@
+{% extends 'SonataAdminBundle:Core:user_block.html.twig' %}
+
+{% block user_block %}
+    {{ parent() }}
+    <li class="divider"></li>
+    <li><a href="{{ path('admin_security_logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+{% endblock %}

@@ -1,0 +1,38 @@
+{
+    "name": "php-solution/user-admin-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle with basic Backoffice User Admin functionallity.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleksandr Savchenko",
+            "email": "dev.olsav@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "symfony/dependency-injection": "^3.3",
+        "symfony/http-kernel": "^3.3",
+        "symfony/http-foundation": "^3.3",
+        "symfony/config": "^3.3",
+        "symfony/form": "^3.3",
+        "symfony/validator": "^3.3",
+        "symfony/security-core": "^3.3",
+        "php-solution/jwt-bundle": "~0.1"
+    },
+    "require-dev": {
+    },
+    "suggest": {
+        "sonata-project/doctrine-orm-admin-bundle": "For use sonata-project"
+    },
+    "autoload":     {
+        "psr-4": { "PhpSolution\\UserAdminBundle\\": "src/" }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.x-dev"
+        }
+    }
+}

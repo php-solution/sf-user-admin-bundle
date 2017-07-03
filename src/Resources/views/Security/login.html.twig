@@ -1,0 +1,38 @@
+{% extends "UserAdminBundle::layout.html.twig" %}
+
+{% block content %}
+{% if not app.user %}
+    <div class="row">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Sign In</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ path('admin_security_check') }}" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <input type="email" id="_username" name="_username" required="required" class="form-control" autofocus="autofocus" placeholder="E-mail" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="_password" name="_password" required="required" class="form-control" placeholder="Password" />
+                            </div>
+                            {% if app.session.error is defined %}
+                                {% if error is iterable %}
+                                    {% for err in error %}
+                                        <div class="errorText">{{ err }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endif %}
+                            <input type="submit" name="login" value="Login" class="btn btn-sm btn-success" />
+                            <a class="pull-right" href="{{ path('admin_forgot_password_request') }}">Forgot password?</a>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <a href="{{ path('admin_security_logout') }}">Logout</a>
+{% endif %}
+{% endblock %}
