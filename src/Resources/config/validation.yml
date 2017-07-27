@@ -7,6 +7,6 @@ PhpSolution\UserAdminBundle\Entity\BasicUserAdmin:
             - Email: {groups: [registration, edit_profile], strict: false}
         plainPassword:
             - Regex:
-                pattern: '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})$/'
+                pattern: '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$/'
                 message: 'Password must be at least 8 characters long, contain only letters and numbers, have at least one capital letter, have at least one special char(!, @, #, $, %, ^, &, *)'
                 groups: [registration, edit_password]
